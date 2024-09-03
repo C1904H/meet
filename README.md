@@ -32,20 +32,20 @@ So that **I can control the amount of events displayed on screen without being o
 
 ### Feature 4: Use the app when offline
 As a **user**, <br />
-I should be able to **use the app when offline** <br />
+I should be able to **use the app when offline**, <br />
 So that **I have constant access to my events, and my use of the app is not limited to when I have internet access**.
 
 ### Feature 5: Add an app shortcut to home screen
 As a **user**, <br />
-I should be able to **add an app shortcut to home screen** <br />
+I should be able to **add an app shortcut to home screen**, <br />
 So that **I can have quick and easy access to the app and my events**.
 
 ### Feature 6: Display charts visualizing event details
 As a **user**, <br />
-I should be able to **view charts visualizing event details** <br />
+I should be able to **view charts visualizing event details**, <br />
 So that **I can have a visual overview of event to help inform choice**.
 
-### Gherkin Syntax
+## Gherkin Syntax
 #### Scenario 1 - User can select a city from the suggested list
 **Given** user was typing "Berlin" in the city textbox AND the list of suggested cities is showing; <br />
 **When** the user selects a city (eg "Berlin, Germany") from the list; <br />
