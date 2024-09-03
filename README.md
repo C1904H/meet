@@ -54,24 +54,24 @@ So that **I can have a visual overview of event to help inform choice**.
 #### Scenario 2 - User is viewing details of event
 **Given** user is viewing a list of events; <br />
 **When** the user selects "show details" link for event; <br />
-**Then**  then detailed information for event should be displayed.
+**Then** detailed information for event should be displayed.
 
 #### Scenario 3 - User can specify the number of events to be displayed
 **Given** user is viewing upcoming events page; <br />
 **When** the user selects the number of events (eg "20") to be displayed; <br />
-**Then**  then the app view should update with the specified number of events (ie "20").
+**Then** the app view should update with the specified number of events (ie "20").
 
 #### Scenario 4 - User has no internet access
 **Given** user is wanting to use the app but is offline; <br />
 **When** the user opens the app; <br />
-**Then**  then the app should display cached event details and perform actions that don't require internet.
+**Then** the app should display cached event details and perform actions that don't require internet.
 
 #### Scenario 5 - User wants to add app shortcut to their home screen
 **Given** user is in the app settings; <br />
 **When** the user selects "add to home screen"; <br />
-**Then**  then app should deploy a shortcut to the app on user's device homescreen.
+**Then** app should deploy a shortcut to the app on user's device homescreen.
 
 #### Scenario 6 - User wants to see how many events will take place in a certain location
 **Given** user is on events page; <br />
 **When** the user selects "chart" icon; <br />
-**Then**  then a scatterplot will be displayed showing how many events will take place in each location.
+**Then** a scatterplot will be displayed showing how many events will take place in each location.
