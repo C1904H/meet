@@ -23,10 +23,36 @@ frameworkVersion: "3"
 provider:
   name: aws
   runtime: nodejs18.x
+  region: eu-west-2
+  timeout: 30 #in seconds - default 6, not always enough for cold-start
+  environment:
+    CLIENT_ID: ${file(config.json):CLIENT_ID}
+    CLIENT_SECRET: ${file(config.json):CLIENT_SECRET}
+    CALENDAR_ID: ${file(config.json):CALENDAR_ID}
+functions:
+  getAuthURL:
+    handler: handler.getAuthURL
+    events:
+      - http:
+          path: api/get-auth-url
+          method: get
+  getAccessToken:
+    handler: handler.getAccessToken
+    events:
+      - http:
+          path: api/token/{code} #{} pass info from first function
+          method: get
+  getCalendarEvents:
+    handler: handler.getCalendarEvents
+    events:
+      - http:
+          path: api/get-events/{access_token}
+          method: get
+
 
 # you can overwrite defaults here
 #  stage: dev
-#  region: us-east-1
+
 
 # you can add statements to the Lambda function's IAM Role here
 #  iam:
@@ -58,9 +84,9 @@ provider:
 #    - include-me.js
 #    - include-me-dir/**
 
-functions:
-  hello:
-    handler: handler.hello
+# functions:
+#   hello:
+#     handler: handler.hello
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
