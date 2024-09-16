@@ -35,7 +35,7 @@ describe('<App /> integration', () => {
     const CitySearchDOM = AppDOM.querySelector('#city-search');
     const CitySearchInput = within(CitySearchDOM).queryByRole('textbox');
 
-    await user.type(CitySearchInput, "Berlin");
+    await user.type(CitySearchInput, 'Berlin');
     const berlinSuggestionItem =
       within(CitySearchDOM).queryByText('Berlin, Germany');
     await user.click(berlinSuggestionItem);
@@ -46,12 +46,31 @@ describe('<App /> integration', () => {
 
     const allEvents = await getEvents();
     const berlinEvents = allEvents.filter(
-      event => event.location === 'Berlin, Germany'
+      (event) => event.location === 'Berlin, Germany'
     );
 
     expect(allRenderedEventItems.length).toBe(berlinEvents.length);
     allRenderedEventItems.forEach((event) => {
-      expect(event.textContent).toContain("Berlin, Germany");
+      expect(event.textContent).toContain('Berlin, Germany');
     });
+  });
+
+  // Scenario 2, Feature 3 - User can change the number of events displayed
+  test('renders event list length as set by user', async () => {
+    const user = userEvent.setup();
+    const AppComponent = render(<App />);
+    const AppDOM = AppComponent.container.firstChild;
+
+    const NumberOfEventsDOM = AppDOM.querySelector('#number-of-events');
+    const NumberOfEventsInput =
+      within(NumberOfEventsDOM).queryByRole('textbox');
+
+    await user.type(NumberOfEventsInput, '{backspace}{backspace}10');
+
+    const EventListDOM = AppDOM.querySelector('#event-list');
+    const allRenderedEventItems =
+      within(EventListDOM).queryAllByRole('listitem');
+
+    expect(allRenderedEventItems.length).toBe(10);
   });
 });

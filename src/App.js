@@ -15,7 +15,7 @@ const App = () => {
   // populates list as soon as App component mounted
   useEffect(() => {
     fetchData();
-  }, [currentCity]);
+  }, [currentCity, currentNOE]);
 
   // populates events state with event list (taking first 32 event objects) and selected location
   const fetchData = async () => {
@@ -30,8 +30,8 @@ const App = () => {
   return (
     <div className="App">
       <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity}/>
+      <NumberOfEvents setCurrentNOE={setCurrentNOE} />
       <EventList events={events} />
-      <NumberOfEvents />
     </div>
   );
 };
