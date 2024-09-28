@@ -1,6 +1,7 @@
 // src/api.js
 
 import mockData from './mock-data';
+import NProgress from 'nprogress';
 
 /**
  *
@@ -34,7 +35,14 @@ export const getEvents = async () => {
   if (window.location.href.startsWith('http://localhost')) {
     return mockData;
   }
+  // if user offline load event list data stored in localStorage
+  if (!navigator.onLine) {
+    const events = localStorage.getItem("lastEvents");
+    NProgress.done();
+    return events?JSON.parse(events):[];
+  }
   const token = await getAccessToken();
+
   // if have access token return Google Calendar API
   if (token) {
     removeQuery();
@@ -42,6 +50,8 @@ export const getEvents = async () => {
     const response = await fetch(url);
     const result = await response.json();
     if (result) {
+      NProgress.done();
+      localStorage.setItem("lastEvents", JSON.stringify(result.events)); //saves fetched events data to localStorage so can use offline
       return result.events;
     } else return null; 
   }
