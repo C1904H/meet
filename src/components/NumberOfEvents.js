@@ -10,9 +10,6 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
   const handleInputChanged = (event) => {
     const value = event.target.value
     setNumber(value);
-    // setCurrentNOE(value);
-    // setErrorAlert("")
-  
 
   let errorText;
     if (isNaN(value) || value <= 0) {
@@ -27,6 +24,7 @@ const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
   return (
     <div id="number-of-events">
       <label>Number of Events: </label>
+      <br />
       <input
         className="number-of-events-input"
         type="text"
