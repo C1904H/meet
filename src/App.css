@@ -13,6 +13,14 @@ ul {
   list-style: none;
 }
 
+h1 {
+  color: #003f5c;
+}
+
+h2 {
+ color: #003f5c;
+}
+
 p {
   margin: 5px 0;
 }
@@ -74,7 +82,16 @@ input[type="number"] {
   text-align: left;
   border: 1px solid #ccc;
   border-radius: 4px;
-  position: relative;
+  position: relative; 
+}
+
+.eventLocation { 
+  font-weight: bold;
+  color: #ff6e54;
+}
+
+.details {
+  color: #374c80;
 }
 
 .details-button {
@@ -83,8 +100,13 @@ input[type="number"] {
   bottom: 5px;
   padding: 5px 8px;
   border-radius: 4px;
+  border-color: #ffc000;
   outline: none;
   cursor: pointer;
+  /* background-color: #505c9b; */
+  background-color: #ffc000;
+  color: white;
+  font-weight: bold;
 }
 
 .alerts-container {
