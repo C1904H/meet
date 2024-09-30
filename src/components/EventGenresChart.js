@@ -35,7 +35,7 @@ const EventGenresChart = ({ events }) => {
   }) => {
     const RADIAN = Math.PI / 180;
     const radius = outerRadius;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07; 
     const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
     return percent ? (
       <text
@@ -65,7 +65,7 @@ const EventGenresChart = ({ events }) => {
           outerRadius={110}
         >
         {data.map((entry, index) => (
-          <Cell key={`cell-${index}`} fill={colors[index % colors.length]}/>
+          <Cell key={`cell-${index}`} fill={colors[index]}/>
         ))}
         </Pie>
         <Legend verticalAlign="bottom" height={36}/>
