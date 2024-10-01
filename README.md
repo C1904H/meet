@@ -1,5 +1,17 @@
 # Meet App
-A serverless, progressive web application (PWA) with React using a test-driven development (TDD) technique. This application uses the Google Calendar API to fetch upcoming events.
+A serverless, progressive web application (PWA) with React using a test-driven development (TDD) technique. This application uses the Google Calendar API to fetch upcoming events and OAuth2 authentication flow. AWS lambda is used as serverless functions for the authorization server. 
+
+This app can also work offline or in slow network conditions with the help of a service worker.  If desired, users can install the app on their desktop or add to their mobile home screen.  3 alert systems have been implemented as user notifications: info alert if no city marches their search (if city misspelt), warning alert if user is offline (warning event information may not be up to date), and an error alert if user specifies a negative number of events or string.
+
+## Project Dependencies
+This project utilises the following dependencies:
+- Serverless
+- Google Calendar API
+- React
+- Jest
+- Jest-Cucumber
+- Puppeteer
+- Recharts
 
 ## Features
 The key features of the app allow users to:
@@ -75,3 +87,34 @@ So that **I can have a visual overview of event to help inform choice**.
 **Given** user is on events page; <br />
 **When** the user selects "chart" icon; <br />
 **Then** a scatterplot will be displayed showing how many events will take place in each location.
+
+## Installation
+
+1. Clone the repository
+```
+git clone https://github.com/C1904H/meet
+```
+
+2. Navigate to the project directory
+```
+cd meet
+```
+
+3. Run app:
+```
+npm start
+```
+
+## Testing
+
+1. Unit and Integration Tests (using Jest)
+```
+npm run test
+```
+
+2. End-to-End Tests (using Puppeteer)
+```
+npm run test
+```
+
+
