@@ -3,7 +3,7 @@ A serverless, progressive web application (PWA) with React using a test-driven d
 
 This app can also work offline or in slow network conditions with the help of a service worker.  If desired, users can install the app on their desktop or add to their mobile home screen.  3 alert systems have been implemented as user notifications: info alert if no city marches their search (if city misspelt), warning alert if user is offline (warning event information may not be up to date), and an error alert if user specifies a negative number of events or string.
 
-## Project Dependencies
+## Project Technologies and Dependencies
 This project utilises the following dependencies:
 - Serverless
 - Google Calendar API
