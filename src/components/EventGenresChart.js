@@ -1,7 +1,7 @@
 // src/components/EventGenresChart.js
 
 import { useState, useEffect } from 'react';
-import { ResponsiveContainer, PieChart, Pie, Legend, Cell } from 'recharts';
+import { ResponsiveContainer, PieChart, Pie, Legend, Cell, Sector } from 'recharts';
 
 const EventGenresChart = ({ events }) => {
   const [data, setData] = useState([]);
@@ -30,13 +30,14 @@ const EventGenresChart = ({ events }) => {
     cy,
     midAngle,
     outerRadius,
+    innerRadius,
     percent,
     index
   }) => {
     const RADIAN = Math.PI / 180;
-    const radius = outerRadius;
-    const x = cx + radius * Math.cos(-midAngle * RADIAN) * 1.07; 
-    const y = cy + radius * Math.sin(-midAngle * RADIAN) * 1.07;
+    const radius = innerRadius + (outerRadius - innerRadius) * 0.7;
+    const x = cx + radius * Math.cos(-midAngle * RADIAN);
+    const y = cy + radius * Math.sin(-midAngle * RADIAN);
     return percent ? (
       <text
         x={x}
@@ -45,7 +46,7 @@ const EventGenresChart = ({ events }) => {
         textAnchor={x > cx ? 'start' : 'end'}
         dominantBaseline="central"
       >
-        {`${genres[index]} ${(percent * 100).toFixed(0)}%`}
+        {`${(percent * 100).toFixed(0)}%`}
       </text>
     ) : null;
   };
@@ -54,7 +55,6 @@ const EventGenresChart = ({ events }) => {
     <ResponsiveContainer
       width="99%"
       height={400}
-      minWidth={500}
     >
       <PieChart>
         <Pie
